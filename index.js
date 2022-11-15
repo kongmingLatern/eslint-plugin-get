@@ -1,6 +1,6 @@
 // eslint plugin
 // rule
-modules.exports = {
+module.exports = {
   rules: {
     get: {
       create() {

@@ -7,7 +7,7 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": "latest"
     },
-    "plugins:": [
+    "plugins": [
         "get"
     ],
     "rules": {

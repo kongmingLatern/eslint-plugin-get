@@ -12,5 +12,13 @@ ruleTester.run('get', rules.get, {
       code: "function getName() {  return '' }"
     }
   ],
-  invalid: []
+  invalid: [
+    {
+      name: 'body is empty',
+      code: 'function getName() {}',
+      errors: [{
+        message: 'getName must return a value'
+      }]
+    }
+  ]
 })

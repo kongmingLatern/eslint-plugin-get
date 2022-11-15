@@ -3,11 +3,18 @@
 module.exports = {
   rules: {
     get: {
-      create() {
-        // api
-        console.log("eslint plugin start");
+      create(context) {
         return {
-
+          FunctionDeclaration(node) {
+            const functionName = node.id.name
+            const BlockStatementBody = node.body.body
+            if (BlockStatementBody.length === 0) {
+              context.report({
+                node,
+                message: `${functionName} must return a value`
+              })
+            }
+          }
         }
       }
     }

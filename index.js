@@ -6,6 +6,9 @@ module.exports = {
       create() {
         // api
         console.log("eslint plugin start");
+        return {
+
+        }
       }
     }
   }

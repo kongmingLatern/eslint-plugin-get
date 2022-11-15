@@ -16,13 +16,15 @@ ruleTester.run('get', rules.get, {
     {
       name: 'body is empty',
       code: 'function getName() {}',
+      output: "function getName() { return ''}",
       errors: [{
         message: 'getName must return a value'
       }]
     },
     {
       name: 'body is not empty',
-      code: "function getName() { var name = '123'}",
+      code: "function getName() { var name = '123';}",
+      output: "function getName() { var name = '123'; return ''}",
       errors: [{
         message: 'getName must return a value'
       }]

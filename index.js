@@ -7,6 +7,9 @@ module.exports = {
         return {
           FunctionDeclaration(node) {
             const functionName = node.id.name
+
+            if (!functionName.startsWith('get')) return
+
             const blockStatementBody = node.body.body
 
             const lastNode = blockStatementBody[blockStatementBody.length - 1]

@@ -7,8 +7,10 @@ module.exports = {
         return {
           FunctionDeclaration(node) {
             const functionName = node.id.name
-            const BlockStatementBody = node.body.body
-            if (BlockStatementBody.length === 0) {
+            const blockStatementBody = node.body.body
+
+            const lastNode = blockStatementBody[blockStatementBody.length - 1]
+            if (!lastNode || lastNode.type !== 'ReturnStatement') {
               context.report({
                 node,
                 message: `${functionName} must return a value`
